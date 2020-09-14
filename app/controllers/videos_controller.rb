@@ -1,12 +1,14 @@
 class VideosController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new, :edit, :destory, :update]
-  before_action :check_owner, only: [:edit, :update, :destroy]
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :check_owner, only: [:edit, :update, :destroy]
 
   # GET /videos
   # GET /videos.json
   def index
     @videos = Video.all
+    @videos = @videos.where("title LIKE ?", "%#{params[:q]}%") if params[:q].present?
+    @videos = @videos.page(params[:page]).per(8)
   end
 
   # GET /videos/1
