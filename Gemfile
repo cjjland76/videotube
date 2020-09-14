@@ -58,4 +58,5 @@ gem 'rails-i18n'
 gem 'bootstrap'
 gem 'font-awesome-rails'
 gem 'carrierwave'
+gem 'kaminari'
 
