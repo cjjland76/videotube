@@ -22,7 +22,7 @@ View count:　<%= @video.view_count.to_i %>
         <%= comment.text %>
     <div class="text-black-50">
       <span class="font-italic"><%= time_ago_in_words comment.created_at %></span>
-    　　 <%= link_to "削除", video_comment_path(comment.id), method: :delete %><br><br>
+    　　 <%= link_to "削除", video_comment_path(comment.video.id, comment.id), method: :delete %><br><br>
     </div>
     <% end %>
   <% end %> 

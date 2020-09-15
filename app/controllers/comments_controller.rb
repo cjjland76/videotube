@@ -5,11 +5,8 @@ class CommentsController < ApplicationController
     redirect_to "/videos/#{comment.video.id}"
   end
   def destroy
-    @comment = Comment.find(params[id])
-    
-    if @comment.destroy
-      redirect_to root_path
-    end
+    Comment.find_by(id: params[:id], video_id: params[:video_id]).destroy
+    redirect_back(fallback_location: root_path) 
   end
 
   private
