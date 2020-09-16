@@ -6,4 +6,9 @@ class User < ApplicationRecord
   has_many :videos
   has_many :comments
   
+  with_options presence: true do
+    validates :nickname
+    validates :email
+    validates :password
+  end
 end
