@@ -9,12 +9,12 @@ RSpec.describe Video, type: :model do
     it "Titleが空だと登録できない" do
       @video.title = ""
       @video.valid?
-      expect(@video.errors.full_messages).to include("Titleを入力してください")
+      expect(@video.errors.full_messages).to include("タイトルを入力してください")
     end
     it "Descriptionが空だと登録できない" do
       @video.description = ""
       @video.valid?
-      expect(@video.errors.full_messages).to include("Descriptionを入力してください")
+      expect(@video.errors.full_messages).to include("デスクリプションを入力してください")
     end
   end
 end
